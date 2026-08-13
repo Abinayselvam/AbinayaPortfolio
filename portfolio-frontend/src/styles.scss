@@ -188,11 +188,72 @@ body.light-theme {
   --footer-copy: #64748b;
   --icon-bg: rgba(15, 23, 42, 0.05);
   --icon-color: #334155;
+  --btn-text: #0f172a;
+  --btn-text-inverse: #ffffff;
 }
 
 body.light-theme #navbar {
   background: rgba(255, 255, 255, 0.95);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+body.light-theme .group .text-white,
+body.light-theme button.text-white {
+  color: #0f172a !important;
+}
+/* Ensure "View My Work" button text stays black in light theme */
+body.light-theme .text-slate-950 {
+  color: #0f172a !important;
+}
+
+body.light-theme .group button {
+  border-color: rgba(15, 23, 42, 0.2) !important;
+}
+
+body.light-theme .group button:hover {
+  border-color: #10b981 !important;
+  background-color: rgba(15, 23, 42, 0.05) !important;
+}
+body.light-theme .availability-badge {
+  background: rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  color: #111827 !important;
+}
+
+body.light-theme .availability-badge .badge-text {
+  color: #111827 !important;
+}
+
+body.light-theme .availability-badge .pulse-dot {
+  background: #111827 !important;
+  box-shadow: 0 0 0 0 rgba(17, 24, 39, 0.5);
+}
+
+body.light-theme .resume-btn,
+body.light-theme .submit-btn,
+body.light-theme .toggle-btn,
+body.light-theme button[type='button'],
+body.light-theme button[type='submit'] {
+  color: var(--btn-text) !important;
+}
+
+body.light-theme .resume-btn svg,
+body.light-theme .submit-btn svg,
+body.light-theme .toggle-btn svg {
+  color: var(--btn-text) !important;
+  stroke: var(--btn-text) !important;
+}
+
+body.light-theme .resume-btn:hover,
+body.light-theme .submit-btn:hover,
+body.light-theme .toggle-btn:hover {
+  color: var(--btn-text) !important;
+}
+
+body.light-theme .resume-btn:hover svg,
+body.light-theme .submit-btn:hover svg,
+body.light-theme .toggle-btn:hover svg {
+  color: var(--btn-text) !important;
+  stroke: var(--btn-text) !important;
 }
 
 body.light-theme #navbar .text-gray-400 { color: #64748b !important; }
@@ -201,6 +262,7 @@ body.light-theme #hero { background: radial-gradient(ellipse at 50% 50%, rgba(16
 body.light-theme #hero h1,
 body.light-theme #hero .text-slate-300 { color: #0f172a !important; -webkit-text-fill-color: #0f172a !important; }
 body.light-theme #hero .text-slate-400 { color: #475569 !important; }
+
 body.light-theme section h2 { color: #0f172a !important; }
 body.light-theme section .text-gray-300,
 body.light-theme section .text-gray-400 { color: #475569 !important; }
@@ -215,6 +277,100 @@ body.light-theme .contact-form {
   border-color: rgba(0, 0, 0, 0.08);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
+
+body.light-theme .exp-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+}
+
+body.light-theme .experience-duration {
+  color: #0f766e !important;
+}
+
+body.light-theme .experience-role {
+  color: #0f172a !important;
+}
+
+body.light-theme .experience-company {
+  color: #0369a1 !important;
+}
+
+body.light-theme .exp-badge {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.22);
+  color: #0f172a !important;
+}
+
+body.light-theme .experience-description {
+  color: #334155 !important;
+}
+
+body.light-theme .exp-tech-chip {
+  background: rgba(15, 23, 42, 0.04);
+  border-color: rgba(15, 23, 42, 0.08);
+  color: #0f172a !important;
+}
+
+body.light-theme #skills h3 {
+  color: #0f172a !important;
+}
+
+body.light-theme .tool-percent {
+  color: #059669 !important;
+}
+
+body.light-theme .tool-name {
+  color: #334155 !important;
+}
+
+body.dark-theme .tool-percent {
+  color: #34d399 !important;
+}
+
+body.dark-theme .tool-name {
+  color: #e2e8f0 !important;
+}
+
+body.light-theme .char-count {
+  color: #475569 !important;
+}
+
+body.dark-theme .char-count {
+  color: #e2e8f0 !important;
+}
+
+body.light-theme .submit-btn,
+body.light-theme .resume-btn {
+  box-shadow: 0 12px 28px rgba(16, 185, 129, 0.18);
+}
+
+body.light-theme .char-count {
+  color: #475569 !important;
+}
+
+body.light-theme .submit-btn {
+  color: #0f172a !important;
+}
+
+body.light-theme .submit-btn svg {
+  color: #0f172a !important;
+  stroke: #0f172a !important;
+}
+
+body.dark-theme .char-count {
+  color: #e2e8f0 !important;
+}
+
+body.dark-theme .submit-btn {
+  color: #ffffff !important;
+}
+
+body.dark-theme .submit-btn svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
 body.light-theme .project-card {
   background: white;
   border-color: rgba(0, 0, 0, 0.08);
@@ -247,6 +403,8 @@ body.dark-theme {
   --footer-copy: #94a3b8;
   --icon-bg: rgba(255, 255, 255, 0.05);
   --icon-color: #cbd5e1;
+  --btn-text: #ffffff;
+  --btn-text-inverse: #0f172a;
 }
 body.dark-theme #navbar {
   background: rgba(3, 7, 18, 0.94);
@@ -289,6 +447,21 @@ body.dark-theme .form-input:focus,
 body.dark-theme .form-textarea:focus { border-color: #10b981; }
 body.dark-theme .footer { border-top: 1px solid rgba(255, 255, 255, 0.06); }
 body.dark-theme .footer-copy { color: #94a3b8; }
+body.light-theme .stat-card .stat-number {
+  color: #0f172a !important;
+}
+
+body.light-theme .stat-card .stat-label {
+  color: #475569 !important;
+}
+
+body.dark-theme .stat-card .stat-number {
+  color: #f8fafc !important;
+}
+
+body.dark-theme .stat-card .stat-label {
+  color: #cbd5e1 !important;
+}
 
 // ============================================
 // SCROLLBAR

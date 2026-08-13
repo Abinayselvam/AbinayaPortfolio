@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
@@ -15,8 +15,6 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, AfterViewInit {
-
-  @ViewChild('toast') toastEl!: ElementRef;
 
   contactForm!: FormGroup;
   projects: Project[] = [];
@@ -115,24 +113,11 @@ export class AppComponent implements OnInit, AfterViewInit {
   ) {}
 
     ngOnInit(): void {
-    // Ping analytics backend
-    this.http.post('https://localhost:7104/api/Analytics/visit', {}).subscribe(); 
-
     this.initForm();
     this.loadProjects();
     this.loadGitHubStats();
     this.typewriterEffect();
-    
-    // Load Theme
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-      this.toggleTheme(false);
-    } else if (savedTheme === 'dark') {
-      this.toggleTheme(true);
-    } else {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      this.toggleTheme(prefersDark);
-    }
+    this.applyTheme(this.getPreferredTheme());
   }
 
   ngAfterViewInit(): void {
@@ -166,11 +151,25 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   // --- NEW: Theme Toggle ---
-  toggleTheme(setToDark?: boolean): void {
-    this.isDarkMode = setToDark !== undefined ? setToDark : !this.isDarkMode;
+  private getPreferredTheme(): 'dark' | 'light' {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      return savedTheme;
+    }
+
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  private applyTheme(theme: 'dark' | 'light'): void {
+    this.isDarkMode = theme === 'dark';
     document.body.classList.toggle('light-theme', !this.isDarkMode);
     document.body.classList.toggle('dark-theme', this.isDarkMode);
-    localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
+    localStorage.setItem('theme', theme);
+  }
+
+  toggleTheme(setToDark?: boolean): void {
+    const nextTheme = setToDark !== undefined ? setToDark : !this.isDarkMode;
+    this.applyTheme(nextTheme ? 'dark' : 'light');
   }
 
   // --- NEW: GitHub Stats ---

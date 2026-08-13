@@ -101,21 +101,21 @@
         </p>
         
         <!-- REMOVED lg:mx-0 FROM HERE -->
-<div class="flex flex-col items-center text-center w-full">
-  <!-- Your H1, Subheading, and Tagline here -->
-  <p class="text-lg text-slate-400 max-w-2xl mx-auto text-center mb-10 scroll-reveal" style="transition-delay: 0.3s;">
-    {{ personalInfo.tagline }}
-  </p>
-</div>
+  <div class="flex flex-col items-center text-center w-full">
+    <!-- Your H1, Subheading, and Tagline here -->
+    <p class="text-lg text-slate-400 max-w-2xl mx-auto text-center mb-10 scroll-reveal" style="transition-delay: 0.3s;">
+      {{ personalInfo.tagline }}
+    </p>
+  </div>
         <!-- REMOVED lg:justify-start FROM HERE -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 scroll-reveal" style="transition-delay: 0.4s;">
          <button (click)="scrollTo('projects')" 
         class="group px-8 py-4 rounded-full text-base flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-bold shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:scale-[1.02] transition-all duration-300">
-  View My Work
-  <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-  </svg>
-</button>
+        View My Work
+        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </button>
           <button (click)="scrollTo('contact')" class="group border border-white/15 hover:border-emerald-400/50 text-white font-medium px-8 py-4 rounded-full text-base transition-all duration-300 hover:bg-white/8 flex items-center gap-2 backdrop-blur-sm">
             Get In Touch
             <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -165,7 +165,7 @@
               <span class="dot dot--red"></span>
               <span class="dot dot--yellow"></span>
               <span class="dot dot--green"></span>
-              <span class="code-filename">about-me.ts</span>
+              <span class="code-filename" style="color: #34d399;">about-me.ts</span>
             </div>
             <div class="code-body">
               <pre class="m-0 text-sm text-gray-200 whitespace-pre-wrap" [textContent]="aboutCodeSnippet"></pre>
