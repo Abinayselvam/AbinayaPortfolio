@@ -150,6 +150,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     setTimeout(() => this.typewriterEffect(), speed);
   }
 
+
   // --- NEW: Theme Toggle ---
   private getPreferredTheme(): 'dark' | 'light' {
     const savedTheme = localStorage.getItem('theme');
@@ -159,6 +160,10 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
+  get nameInitials(): string {
+  return this.personalInfo.name.split(' ').map(n => n[0]).join('');
+}
+  
 
   private applyTheme(theme: 'dark' | 'light'): void {
     this.isDarkMode = theme === 'dark';

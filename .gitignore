@@ -1,0 +1,9 @@
+# Ignore Visual Studio temporary and cache folders
+.vs/
+*.vs/
+
+# Ignore local database cache files
+*.db
+*.db-shm
+*.db-wal
+*.sqlite

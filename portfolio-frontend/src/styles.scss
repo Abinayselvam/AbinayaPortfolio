@@ -10,6 +10,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 // ============================================
 // SCSS VARIABLES
 // ============================================
@@ -42,6 +43,16 @@
 // ============================================
 // SCSS MIXINS
 // ============================================
+// ============================================
+// FORCE ALL PAGE CONTENT TO CENTER
+// ============================================
+.max-w-7xl {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
 @mixin glass-card {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
@@ -276,6 +287,23 @@ body.light-theme .contact-form {
   background: rgba(255, 255, 255, 0.8);
   border-color: rgba(0, 0, 0, 0.08);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Contact info icons — brighter */
+.info-icon {
+  background: rgba(16, 185, 129, 0.2) !important;
+  color: #34d399 !important;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.25);
+}
+
+/* Send Message button — vivid gradient */
+.submit-btn {
+  background: linear-gradient(135deg, #10b981, #06b6d4, #3b82f6) !important;
+  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.35), 0 4px 15px rgba(6, 182, 212, 0.2) !important;
+}
+
+.submit-btn:hover:not(:disabled) {
+  box-shadow: 0 12px 40px rgba(16, 185, 129, 0.5), 0 6px 20px rgba(6, 182, 212, 0.3) !important;
 }
 
 body.light-theme .exp-card {
@@ -595,13 +623,36 @@ app-root {
 .hero-shell {
   position: relative;
   z-index: 2;
-  padding: 2rem 1.25rem;
+  padding: 4rem 1.5rem;            /* ← bigger vertical & horizontal padding */
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 1.75rem;
   background: linear-gradient(135deg, rgba(255,255,255,0.065), rgba(255,255,255,0.03));
   box-shadow: 0 24px 60px rgba(2, 6, 23, 0.24);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
+  text-align: center;               /* ← ensure everything inside is centered */
+  display: flex;                    /* ← flex to vertically center content */
+  align-items: center;              /* ← vertical center */
+  justify-content: center;          /* ← horizontal center */
+  min-height: 500px;                /* ← force a tall card */
+
+  @media (min-width: 768px) {
+    padding: 5rem 3rem;
+    min-height: 560px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 6rem 4rem;
+    min-height: 620px;
+  }
+}
+.hero-shell > .text-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .availability-badge {
