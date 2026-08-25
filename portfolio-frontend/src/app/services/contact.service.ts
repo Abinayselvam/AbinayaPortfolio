@@ -7,15 +7,16 @@ import { environment } from '../../../environment.prod';
 @Injectable({
   providedIn: 'root'
 })
+@Injectable({
+  providedIn: 'root'
+})
 export class ContactService {
-  private baseUrl = `${environment.apiUrl}/Contact/send` // Your .NET backend URL
+  private baseUrl = `${environment.apiUrl}/Contact`;
 
   constructor(private http: HttpClient) {}
 
   sendContactForm(form: ContactForm): Observable<ApiResponse> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post<ApiResponse>(`${this.baseUrl}/send`, form, { headers });
   }
 }
